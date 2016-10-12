@@ -1,0 +1,9 @@
+C:\Users\bob\documents\visual studio 2013\Projects\Db\OpenDb\obj\Debug\OpenDb.Form1.resources
+C:\Users\bob\documents\visual studio 2013\Projects\Db\OpenDb\obj\Debug\OpenDb.Properties.Resources.resources
+C:\Users\bob\documents\visual studio 2013\Projects\Db\OpenDb\obj\Debug\OpenDb.csproj.GenerateResource.Cache
+C:\Users\bob\documents\visual studio 2013\Projects\Db\OpenDb\bin\Debug\OpenDb.exe.config
+C:\Users\bob\documents\visual studio 2013\Projects\Db\OpenDb\bin\Debug\OpenDb.exe
+C:\Users\bob\documents\visual studio 2013\Projects\Db\OpenDb\bin\Debug\OpenDb.pdb
+C:\Users\bob\documents\visual studio 2013\Projects\Db\OpenDb\obj\Debug\OpenDb.exe
+C:\Users\bob\documents\visual studio 2013\Projects\Db\OpenDb\obj\Debug\OpenDb.pdb
+C:\Users\bob\documents\visual studio 2013\Projects\Db\OpenDb\obj\Debug\OpenDb.csprojResolveAssemblyReference.cache
