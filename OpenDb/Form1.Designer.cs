@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.retourData = new System.Windows.Forms.RichTextBox();
             this.ChoosenConButton = new System.Windows.Forms.Button();
@@ -74,6 +75,12 @@
             this.panelConnection = new System.Windows.Forms.Panel();
             this.listBoxEtudiants = new System.Windows.Forms.ListBox();
             this.panelSelectAll = new System.Windows.Forms.Panel();
+            this.panelDataGriedView = new System.Windows.Forms.Panel();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.sgbd2016DataSet = new OpenDb.Sgbd2016DataSet();
+            this.sgbd2016DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rechargeButton = new System.Windows.Forms.Button();
+            this.submitButton = new System.Windows.Forms.Button();
             this.CreateEtuPanel.SuspendLayout();
             this.panel_InsertButton.SuspendLayout();
             this.OperationChoicePanel.SuspendLayout();
@@ -85,6 +92,10 @@
             this.panelUpdateById.SuspendLayout();
             this.panelConnection.SuspendLayout();
             this.panelSelectAll.SuspendLayout();
+            this.panelDataGriedView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sgbd2016DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sgbd2016DataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -104,13 +115,12 @@
             this.retourData.Size = new System.Drawing.Size(100, 96);
             this.retourData.TabIndex = 2;
             this.retourData.Text = "";
-            this.retourData.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // ChoosenConButton
             // 
-            this.ChoosenConButton.Location = new System.Drawing.Point(39, 117);
+            this.ChoosenConButton.Location = new System.Drawing.Point(62, 117);
             this.ChoosenConButton.Name = "ChoosenConButton";
-            this.ChoosenConButton.Size = new System.Drawing.Size(112, 34);
+            this.ChoosenConButton.Size = new System.Drawing.Size(100, 34);
             this.ChoosenConButton.TabIndex = 3;
             this.ChoosenConButton.Text = "ChosenConnection";
             this.ChoosenConButton.UseVisualStyleBackColor = true;
@@ -259,13 +269,13 @@
             this.CreateEtuPanel.Controls.Add(this.textBoxPrenom);
             this.CreateEtuPanel.Location = new System.Drawing.Point(0, 250);
             this.CreateEtuPanel.Name = "CreateEtuPanel";
-            this.CreateEtuPanel.Size = new System.Drawing.Size(223, 213);
+            this.CreateEtuPanel.Size = new System.Drawing.Size(223, 204);
             this.CreateEtuPanel.TabIndex = 20;
             // 
             // panel_InsertButton
             // 
             this.panel_InsertButton.Controls.Add(this.buttonInsert);
-            this.panel_InsertButton.Location = new System.Drawing.Point(49, 159);
+            this.panel_InsertButton.Location = new System.Drawing.Point(56, 144);
             this.panel_InsertButton.Name = "panel_InsertButton";
             this.panel_InsertButton.Size = new System.Drawing.Size(116, 51);
             this.panel_InsertButton.TabIndex = 25;
@@ -339,9 +349,9 @@
             this.panelEtuDeleteByName.Controls.Add(this.label8);
             this.panelEtuDeleteByName.Controls.Add(this.nameToDeleteTextbox);
             this.panelEtuDeleteByName.Controls.Add(this.button3);
-            this.panelEtuDeleteByName.Location = new System.Drawing.Point(6, 99);
+            this.panelEtuDeleteByName.Location = new System.Drawing.Point(9, 101);
             this.panelEtuDeleteByName.Name = "panelEtuDeleteByName";
-            this.panelEtuDeleteByName.Size = new System.Drawing.Size(149, 84);
+            this.panelEtuDeleteByName.Size = new System.Drawing.Size(149, 82);
             this.panelEtuDeleteByName.TabIndex = 23;
             // 
             // label8
@@ -511,16 +521,58 @@
             // panelSelectAll
             // 
             this.panelSelectAll.Controls.Add(this.listBoxEtudiants);
-            this.panelSelectAll.Location = new System.Drawing.Point(446, 217);
+            this.panelSelectAll.Location = new System.Drawing.Point(713, 63);
             this.panelSelectAll.Name = "panelSelectAll";
             this.panelSelectAll.Size = new System.Drawing.Size(212, 135);
             this.panelSelectAll.TabIndex = 26;
+            // 
+            // panelDataGriedView
+            // 
+            this.panelDataGriedView.Controls.Add(this.submitButton);
+            this.panelDataGriedView.Controls.Add(this.dataGridView);
+            this.panelDataGriedView.Controls.Add(this.rechargeButton);
+            this.panelDataGriedView.Location = new System.Drawing.Point(415, 208);
+            this.panelDataGriedView.Name = "panelDataGriedView";
+            this.panelDataGriedView.Size = new System.Drawing.Size(539, 246);
+            this.panelDataGriedView.TabIndex = 27;
+            // 
+            // dataGridView
+            // 
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(22, 12);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(401, 218);
+            this.dataGridView.TabIndex = 0;
+            // 
+            // sgbd2016DataSet
+            // 
+            this.sgbd2016DataSet.DataSetName = "Sgbd2016DataSet";
+            this.sgbd2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rechargeButton
+            // 
+            this.rechargeButton.Location = new System.Drawing.Point(455, 59);
+            this.rechargeButton.Name = "rechargeButton";
+            this.rechargeButton.Size = new System.Drawing.Size(75, 23);
+            this.rechargeButton.TabIndex = 28;
+            this.rechargeButton.Text = "button4";
+            this.rechargeButton.UseVisualStyleBackColor = true;
+            // 
+            // submitButton
+            // 
+            this.submitButton.Location = new System.Drawing.Point(455, 108);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(75, 23);
+            this.submitButton.TabIndex = 29;
+            this.submitButton.Text = "button6";
+            this.submitButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 466);
+            this.ClientSize = new System.Drawing.Size(957, 466);
+            this.Controls.Add(this.panelDataGriedView);
             this.Controls.Add(this.panelSelectAll);
             this.Controls.Add(this.panelConnection);
             this.Controls.Add(this.panelUpdate);
@@ -530,6 +582,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.CreateEtuPanel.ResumeLayout(false);
             this.CreateEtuPanel.PerformLayout();
             this.panel_InsertButton.ResumeLayout(false);
@@ -548,6 +601,10 @@
             this.panelConnection.ResumeLayout(false);
             this.panelConnection.PerformLayout();
             this.panelSelectAll.ResumeLayout(false);
+            this.panelDataGriedView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sgbd2016DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sgbd2016DataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -600,6 +657,12 @@
         private System.Windows.Forms.Panel panel_InsertButton;
         private System.Windows.Forms.ListBox listBoxEtudiants;
         private System.Windows.Forms.Panel panelSelectAll;
+        private System.Windows.Forms.Panel panelDataGriedView;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.BindingSource sgbd2016DataSetBindingSource;
+        private Sgbd2016DataSet sgbd2016DataSet;
+        private System.Windows.Forms.Button rechargeButton;
+        private System.Windows.Forms.Button submitButton;
     }
 }
 
