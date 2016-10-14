@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -38,54 +39,7 @@ namespace OpenDb
             panelSelectAll.Hide();
 
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            using (SqlConnection connection = new SqlConnection(
-                  "Integrated Security=SSPI;Initial Catalog=Sgbd2016"))
-            {
-                try
-                {
-                    connection.Open();
-
-                    SqlCommand command = new SqlCommand("SELECT * FROM ETUDIANT", connection);
-
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    // while there is another record present
-                    while (reader.Read())
-                    {
-                        retourData.Text =
-                            // write the data on to the screen
-                        (String.Format("{0} \t | {1} \t | {2} \t | {3}",
-                            // call the objects from their index
-                        reader[0], reader[1], reader[2], reader[3]));
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    string myerror;
-                    switch (ex.Number)
-                    {
-                        case 18456:
-                            myerror = "mauvais user";
-                            break;
-                        case 4060:
-                            myerror = "mauvais db";
-                            break;
-                        default:
-                            myerror = ex.Message;
-                            break;
-
-                    }
-
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-        }
-
+     
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -557,15 +511,18 @@ namespace OpenDb
         public void GetData(string slctCommand)
         {
 
-           SqlConnection myconnection = new SqlConnection("Data Source=arpa ;Initial Catalog =Sgbd2016 ;User ID=monUser;Password=monUser");
+
+            var myconnection = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+
+          
            
                 try
                 {
                     dataAdapter = new SqlDataAdapter(slctCommand, myconnection);
                     SqlCommandBuilder commandbuilder = new SqlCommandBuilder(dataAdapter);
                     DataTable table = new DataTable();
-                   dataAdapter.Fill(table);
-                   table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                    dataAdapter.Fill(table);
+                    table.Locale = System.Globalization.CultureInfo.InvariantCulture;
                     bindingSource1.DataSource = table;
                     dataGridView.AutoResizeColumns(
                     DataGridViewAutoSizeColumnsMode.AllCells);
