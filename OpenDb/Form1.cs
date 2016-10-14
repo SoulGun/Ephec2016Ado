@@ -15,7 +15,11 @@ namespace OpenDb
     public partial class Form1 : Form
     {
         BindingSource bindingSource1 = new BindingSource();
+        BindingSource bindingSource2 = new BindingSource();
+        BindingSource bindingSource3 = new BindingSource();
         SqlDataAdapter dataAdapter = new SqlDataAdapter();
+        SqlDataAdapter dataAdapter1 = new SqlDataAdapter();
+        SqlDataAdapter dataAdapter2 = new SqlDataAdapter();
 
 
 
@@ -503,12 +507,12 @@ namespace OpenDb
 
         private void rechargeButton_click(object sender, EventArgs e)
         {
-            GetData(dataAdapter.SelectCommand.CommandText);
+            GetAllStudent(dataAdapter.SelectCommand.CommandText);
 
 
 
         }
-        public void GetData(string slctCommand)
+        public void GetAllStudent(string slctCommand)
         {
 
 
@@ -538,10 +542,57 @@ namespace OpenDb
             }
         
         private void Form1_Load(object sender, EventArgs e)
-        {            dataGridView.DataSource = bindingSource1;
-
-            GetData("select * from Etudiant");
+        {            
+            dataGridView.DataSource = bindingSource1;
+            dataGridViewStudentWithCar.DataSource = bindingSource2;
+            dataGridViewStudentNoCar.DataSource = bindingSource3;
+            GetAllStudent("select * from Etudiant");
+            GetStudentWithoutCar("Select ETU_nom,ETU_prenom from ETUDIANT where ETU_MATRICULE not in" + " (" + "select proprio from  Voiture" + ")");
+            GetStudentWithCars("select ETU_nom,ETU_prenom,plaque from ETUDIANT as e inner join Voiture as v on e.ETU_MATRICULE=v.proprio");
         }
+
+        private void GetStudentWithoutCar(string p)
+        {
+            var myconnection = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+            try
+            {
+                dataAdapter2 = new SqlDataAdapter(p, myconnection);
+                SqlCommandBuilder commandbuilder = new SqlCommandBuilder(dataAdapter2);
+                DataTable table = new DataTable();
+                dataAdapter2.Fill(table);
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                bindingSource3.DataSource = table;
+                dataGridView.AutoResizeColumns(
+                DataGridViewAutoSizeColumnsMode.AllCells);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void GetStudentWithCars(string p)
+        {
+            var myconnection = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+            try
+            {
+                dataAdapter1 = new SqlDataAdapter(p, myconnection);
+                SqlCommandBuilder commandbuilder = new SqlCommandBuilder(dataAdapter1);
+                DataTable table = new DataTable();
+                dataAdapter1.Fill(table);
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                bindingSource2.DataSource = table;
+                dataGridView.AutoResizeColumns(
+                DataGridViewAutoSizeColumnsMode.AllCells);
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
 
 

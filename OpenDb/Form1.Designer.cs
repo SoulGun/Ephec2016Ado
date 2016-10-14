@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
             this.retourData = new System.Windows.Forms.RichTextBox();
             this.ChoosenConButton = new System.Windows.Forms.Button();
             this.userTextBox = new System.Windows.Forms.TextBox();
@@ -76,11 +75,15 @@
             this.listBoxEtudiants = new System.Windows.Forms.ListBox();
             this.panelSelectAll = new System.Windows.Forms.Panel();
             this.panelDataGriedView = new System.Windows.Forms.Panel();
+            this.submitButton = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.rechargeButton = new System.Windows.Forms.Button();
             this.sgbd2016DataSet = new OpenDb.Sgbd2016DataSet();
             this.sgbd2016DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rechargeButton = new System.Windows.Forms.Button();
-            this.submitButton = new System.Windows.Forms.Button();
+            this.panelEtudiantAvecCar = new System.Windows.Forms.Panel();
+            this.dataGridViewStudentWithCar = new System.Windows.Forms.DataGridView();
+            this.panelStudentNoCar = new System.Windows.Forms.Panel();
+            this.dataGridViewStudentNoCar = new System.Windows.Forms.DataGridView();
             this.CreateEtuPanel.SuspendLayout();
             this.panel_InsertButton.SuspendLayout();
             this.OperationChoicePanel.SuspendLayout();
@@ -96,17 +99,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sgbd2016DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sgbd2016DataSetBindingSource)).BeginInit();
+            this.panelEtudiantAvecCar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentWithCar)).BeginInit();
+            this.panelStudentNoCar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentNoCar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(59, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 52);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "connection";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // retourData
             // 
@@ -118,9 +115,9 @@
             // 
             // ChoosenConButton
             // 
-            this.ChoosenConButton.Location = new System.Drawing.Point(62, 117);
+            this.ChoosenConButton.Location = new System.Drawing.Point(56, 117);
             this.ChoosenConButton.Name = "ChoosenConButton";
-            this.ChoosenConButton.Size = new System.Drawing.Size(100, 34);
+            this.ChoosenConButton.Size = new System.Drawing.Size(117, 34);
             this.ChoosenConButton.TabIndex = 3;
             this.ChoosenConButton.Text = "ChosenConnection";
             this.ChoosenConButton.UseVisualStyleBackColor = true;
@@ -267,7 +264,7 @@
             this.CreateEtuPanel.Controls.Add(this.textBoxMatricule);
             this.CreateEtuPanel.Controls.Add(this.label6);
             this.CreateEtuPanel.Controls.Add(this.textBoxPrenom);
-            this.CreateEtuPanel.Location = new System.Drawing.Point(0, 250);
+            this.CreateEtuPanel.Location = new System.Drawing.Point(3, 172);
             this.CreateEtuPanel.Name = "CreateEtuPanel";
             this.CreateEtuPanel.Size = new System.Drawing.Size(223, 204);
             this.CreateEtuPanel.TabIndex = 20;
@@ -286,9 +283,9 @@
             this.OperationChoicePanel.Controls.Add(this.CheckBoxUpdate);
             this.OperationChoicePanel.Controls.Add(this.checkBoxRead);
             this.OperationChoicePanel.Controls.Add(this.checkBox1);
-            this.OperationChoicePanel.Location = new System.Drawing.Point(12, 92);
+            this.OperationChoicePanel.Location = new System.Drawing.Point(29, 11);
             this.OperationChoicePanel.Name = "OperationChoicePanel";
-            this.OperationChoicePanel.Size = new System.Drawing.Size(136, 152);
+            this.OperationChoicePanel.Size = new System.Drawing.Size(136, 155);
             this.OperationChoicePanel.TabIndex = 21;
             // 
             // CheckBoxDelete
@@ -339,9 +336,9 @@
             // 
             this.panelDelete.Controls.Add(this.panelEtuDeleteByName);
             this.panelDelete.Controls.Add(this.panelEtuDeleteID);
-            this.panelDelete.Location = new System.Drawing.Point(232, 268);
+            this.panelDelete.Location = new System.Drawing.Point(232, 172);
             this.panelDelete.Name = "panelDelete";
-            this.panelDelete.Size = new System.Drawing.Size(177, 186);
+            this.panelDelete.Size = new System.Drawing.Size(177, 204);
             this.panelDelete.TabIndex = 22;
             // 
             // panelEtuDeleteByName
@@ -375,7 +372,7 @@
             this.panelEtuDeleteID.Controls.Add(this.button2);
             this.panelEtuDeleteID.Controls.Add(this.label4);
             this.panelEtuDeleteID.Controls.Add(this.idToDelete);
-            this.panelEtuDeleteID.Location = new System.Drawing.Point(9, 7);
+            this.panelEtuDeleteID.Location = new System.Drawing.Point(9, 4);
             this.panelEtuDeleteID.Name = "panelEtuDeleteID";
             this.panelEtuDeleteID.Size = new System.Drawing.Size(149, 91);
             this.panelEtuDeleteID.TabIndex = 15;
@@ -395,7 +392,7 @@
             this.panelUpdate.Controls.Add(this.panelUpdateByName);
             this.panelUpdate.Controls.Add(this.panelUpdateById);
             this.panelUpdate.Controls.Add(this.retourData);
-            this.panelUpdate.Location = new System.Drawing.Point(371, 12);
+            this.panelUpdate.Location = new System.Drawing.Point(883, 16);
             this.panelUpdate.Name = "panelUpdate";
             this.panelUpdate.Size = new System.Drawing.Size(314, 186);
             this.panelUpdate.TabIndex = 23;
@@ -505,7 +502,7 @@
             this.panelConnection.Controls.Add(this.userTextBox);
             this.panelConnection.Controls.Add(this.ChoosenConButton);
             this.panelConnection.Controls.Add(this.textBoxPassword);
-            this.panelConnection.Location = new System.Drawing.Point(176, 80);
+            this.panelConnection.Location = new System.Drawing.Point(167, 12);
             this.panelConnection.Name = "panelConnection";
             this.panelConnection.Size = new System.Drawing.Size(189, 154);
             this.panelConnection.TabIndex = 24;
@@ -521,7 +518,7 @@
             // panelSelectAll
             // 
             this.panelSelectAll.Controls.Add(this.listBoxEtudiants);
-            this.panelSelectAll.Location = new System.Drawing.Point(713, 63);
+            this.panelSelectAll.Location = new System.Drawing.Point(362, 11);
             this.panelSelectAll.Name = "panelSelectAll";
             this.panelSelectAll.Size = new System.Drawing.Size(212, 135);
             this.panelSelectAll.TabIndex = 26;
@@ -531,10 +528,19 @@
             this.panelDataGriedView.Controls.Add(this.submitButton);
             this.panelDataGriedView.Controls.Add(this.dataGridView);
             this.panelDataGriedView.Controls.Add(this.rechargeButton);
-            this.panelDataGriedView.Location = new System.Drawing.Point(415, 208);
+            this.panelDataGriedView.Location = new System.Drawing.Point(415, 152);
             this.panelDataGriedView.Name = "panelDataGriedView";
-            this.panelDataGriedView.Size = new System.Drawing.Size(539, 246);
+            this.panelDataGriedView.Size = new System.Drawing.Size(448, 285);
             this.panelDataGriedView.TabIndex = 27;
+            // 
+            // submitButton
+            // 
+            this.submitButton.Location = new System.Drawing.Point(217, 247);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(75, 23);
+            this.submitButton.TabIndex = 29;
+            this.submitButton.Text = "button6";
+            this.submitButton.UseVisualStyleBackColor = true;
             // 
             // dataGridView
             // 
@@ -544,34 +550,60 @@
             this.dataGridView.Size = new System.Drawing.Size(401, 218);
             this.dataGridView.TabIndex = 0;
             // 
-            // sgbd2016DataSet
-            // 
-            this.sgbd2016DataSet.DataSetName = "Sgbd2016DataSet";
-            this.sgbd2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // rechargeButton
             // 
-            this.rechargeButton.Location = new System.Drawing.Point(455, 59);
+            this.rechargeButton.Location = new System.Drawing.Point(83, 247);
             this.rechargeButton.Name = "rechargeButton";
             this.rechargeButton.Size = new System.Drawing.Size(75, 23);
             this.rechargeButton.TabIndex = 28;
             this.rechargeButton.Text = "button4";
             this.rechargeButton.UseVisualStyleBackColor = true;
             // 
-            // submitButton
+            // sgbd2016DataSet
             // 
-            this.submitButton.Location = new System.Drawing.Point(455, 108);
-            this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(75, 23);
-            this.submitButton.TabIndex = 29;
-            this.submitButton.Text = "button6";
-            this.submitButton.UseVisualStyleBackColor = true;
+            this.sgbd2016DataSet.DataSetName = "Sgbd2016DataSet";
+            this.sgbd2016DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // panelEtudiantAvecCar
+            // 
+            this.panelEtudiantAvecCar.Controls.Add(this.dataGridViewStudentWithCar);
+            this.panelEtudiantAvecCar.Location = new System.Drawing.Point(3, 383);
+            this.panelEtudiantAvecCar.Name = "panelEtudiantAvecCar";
+            this.panelEtudiantAvecCar.Size = new System.Drawing.Size(406, 166);
+            this.panelEtudiantAvecCar.TabIndex = 28;
+            // 
+            // dataGridViewStudentWithCar
+            // 
+            this.dataGridViewStudentWithCar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStudentWithCar.Location = new System.Drawing.Point(9, 9);
+            this.dataGridViewStudentWithCar.Name = "dataGridViewStudentWithCar";
+            this.dataGridViewStudentWithCar.Size = new System.Drawing.Size(378, 150);
+            this.dataGridViewStudentWithCar.StandardTab = true;
+            this.dataGridViewStudentWithCar.TabIndex = 0;
+            // 
+            // panelStudentNoCar
+            // 
+            this.panelStudentNoCar.Controls.Add(this.dataGridViewStudentNoCar);
+            this.panelStudentNoCar.Location = new System.Drawing.Point(883, 211);
+            this.panelStudentNoCar.Name = "panelStudentNoCar";
+            this.panelStudentNoCar.Size = new System.Drawing.Size(314, 315);
+            this.panelStudentNoCar.TabIndex = 29;
+            // 
+            // dataGridViewStudentNoCar
+            // 
+            this.dataGridViewStudentNoCar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStudentNoCar.Location = new System.Drawing.Point(9, 16);
+            this.dataGridViewStudentNoCar.Name = "dataGridViewStudentNoCar";
+            this.dataGridViewStudentNoCar.Size = new System.Drawing.Size(302, 284);
+            this.dataGridViewStudentNoCar.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(957, 466);
+            this.ClientSize = new System.Drawing.Size(1209, 559);
+            this.Controls.Add(this.panelStudentNoCar);
+            this.Controls.Add(this.panelEtudiantAvecCar);
             this.Controls.Add(this.panelDataGriedView);
             this.Controls.Add(this.panelSelectAll);
             this.Controls.Add(this.panelConnection);
@@ -579,7 +611,6 @@
             this.Controls.Add(this.panelDelete);
             this.Controls.Add(this.OperationChoicePanel);
             this.Controls.Add(this.CreateEtuPanel);
-            this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -605,13 +636,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sgbd2016DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sgbd2016DataSetBindingSource)).EndInit();
+            this.panelEtudiantAvecCar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentWithCar)).EndInit();
+            this.panelStudentNoCar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentNoCar)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox retourData;
         private System.Windows.Forms.Button ChoosenConButton;
         private System.Windows.Forms.TextBox userTextBox;
@@ -663,6 +697,10 @@
         private Sgbd2016DataSet sgbd2016DataSet;
         private System.Windows.Forms.Button rechargeButton;
         private System.Windows.Forms.Button submitButton;
+        private System.Windows.Forms.Panel panelEtudiantAvecCar;
+        private System.Windows.Forms.DataGridView dataGridViewStudentWithCar;
+        private System.Windows.Forms.Panel panelStudentNoCar;
+        private System.Windows.Forms.DataGridView dataGridViewStudentNoCar;
     }
 }
 
