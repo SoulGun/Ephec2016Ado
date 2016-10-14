@@ -557,15 +557,15 @@ namespace OpenDb
         public void GetData(string slctCommand)
         {
 
-            using (SqlConnection myconnection = new SqlConnection("Data Source=arpa ;Initial Catalog =Sgbd2016 ;User ID=monUser;Password=monUser"))
-            {
+           SqlConnection myconnection = new SqlConnection("Data Source=arpa ;Initial Catalog =Sgbd2016 ;User ID=monUser;Password=monUser");
+           
                 try
                 {
                     dataAdapter = new SqlDataAdapter(slctCommand, myconnection);
                     SqlCommandBuilder commandbuilder = new SqlCommandBuilder(dataAdapter);
                     DataTable table = new DataTable();
                    dataAdapter.Fill(table);
-
+                   table.Locale = System.Globalization.CultureInfo.InvariantCulture;
                     bindingSource1.DataSource = table;
                     dataGridView.AutoResizeColumns(
                     DataGridViewAutoSizeColumnsMode.AllCells);
@@ -577,16 +577,13 @@ namespace OpenDb
 
                     MessageBox.Show(ex.Message);
                 }
-                finally
-                {
-                    myconnection.Close();
-                }
+               
             }
-        }
+        
         private void Form1_Load(object sender, EventArgs e)
         {            dataGridView.DataSource = bindingSource1;
 
-            GetData("select * from Etudiant as E inner join Voiture as v on E.ETU_MATRICULE=v.proprio");
+            GetData("select * from Etudiant");
         }
 
 
